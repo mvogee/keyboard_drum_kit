@@ -2,3 +2,40 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    font-family: Arvo, Georgia, 'Times New Roman', Times, serif;
+    background-color: #283149;
+    text-align: center;
+}
+
+h1 {
+    font-size: 7em;
+    font-weight: 900;
+    color: #FFF;
+}
+
+button {
+    background-color: #FFF;
+    color: #DA0463;
+    outline: none;
+    border-radius: 10px;
+    border: 10px solid #404B69;
+    font-size: 2em;
+    width: 6rem;
+    height: 6rem;
+}
+
+.buttons-wrapper {
+    margin: 20% auto;
+    max-width: 870px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+}
+
+button:active {
+    border: 8px solid #6e82b8;
+}
