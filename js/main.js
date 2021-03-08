@@ -1,34 +1,12 @@
 var buttons = document.querySelectorAll("button");
-var crashbtn = document.querySelector(".crash");
-var kickbtn = document.querySelector(".kick");
-var snarebtn = document.querySelector(".snare");
-var tom1btn = document.querySelector(".tom1");
-var tom2btn = document.querySelector(".tom2");
-var tom3btn = document.querySelector(".tom3");
-var tom4btn = document.querySelector(".tom4");
 
-crashbtn.onclick = function() {
-    sounds("crash");
-}
-kickbtn.onclick = function() {
-    sounds("kick");
-}
-snarebtn.onclick = function() {
-    sounds("snare");
-}
-tom1btn.onclick = function() {
-    sounds("tom1");
-}
-tom2btn.onclick = function() {
-    sounds("tom2");
-}
-tom3btn.onclick = function() {
-    sounds("tom3");
-}
-tom4btn.onclick = function() {
-    sounds("tom4");
+function clicked() {
+    sounds(this.classList[0]);
 }
 
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", clicked);
+}
 
 document.onkeydown = checkKey;
 
@@ -36,15 +14,13 @@ function checkKey(e) {
     e = e || window.event;
     switch (e.keyCode) {
         case 87: // w
-            crashbtn.classList.toggle("button-active");
             sounds("crash");
             break;
         case 65: // a
-            kickbtn.classList.add("button-active");
+
             sounds("kick");
             break;
         case 83: // s
-            snarebtn.classList.add("button-active");
             sounds("snare");
             break;
         case 68: // d

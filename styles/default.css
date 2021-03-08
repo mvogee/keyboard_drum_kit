@@ -40,3 +40,32 @@ button:active,
 button-active {
     border: 8px solid #6e82b8;
 }
+
+.crash {
+    background-image: url("../images/crash.png");
+    background-size: cover;
+}
+.kick {
+    background-image: url("../images/kick.png");
+    background-size: cover;
+}
+.snare {
+    background-image: url("../images/snare.png");
+    background-size: cover;
+}
+.tom1 {
+    background-image: url("../images/tom1.png");
+    background-size: cover;
+}
+.tom2 {
+    background-image: url("../images/tom2.png");
+    background-size: cover;
+}
+.tom3 {
+    background-image: url("../images/tom3.png");
+    background-size: cover;
+}
+.tom4 {
+    background-image: url("../images/tom4.png");
+    background-size: cover;
+}
