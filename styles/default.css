@@ -36,6 +36,7 @@ button {
     align-content: center;
 }
 
-button:active {
+button:active,
+button-active {
     border: 8px solid #6e82b8;
 }
