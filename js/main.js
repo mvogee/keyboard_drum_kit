@@ -1,43 +1,31 @@
-var buttons = document.querySelectorAll("button");
-
-function clicked() {
-    sounds(this.classList[0]);
-}
-
-for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", clicked);
-}
-
-document.onkeydown = checkKey;
-
 function checkKey(e) {
-    e = e || window.event;
+    var drum;
     switch (e.keyCode) {
         case 87: // w
-            sounds("crash");
+            drum = "crash";
             break;
         case 65: // a
-
-            sounds("kick");
+            drum = "kick";
             break;
         case 83: // s
-            sounds("snare");
+            drum = "snare";
             break;
         case 68: // d
-            sounds("tom1");
+            drum = "tom1";
             break;
         case 74: // j
-            sounds("tom2");
+            drum = "tom2";
             break;
         case 75: // k
-            sounds("tom3");
+            drum = "tom3";
             break;
         case 76: // l
-            sounds("tom4");
+            drum = "tom4";
             break;
         default:
-            return ;
+            return "none";
     }
+    return (drum);
 }
 
 function sounds(drum) {
@@ -65,7 +53,45 @@ function sounds(drum) {
             sound = new Audio("./sounds/tom-4.mp3");
             break;
         default:
+            console.log("no sound played");
             return ;
     }
     sound.play();
 }
+
+function animateBtn(btnClass) {
+    var obj = document.querySelector("." + btnClass);
+    console.log(obj);
+    obj.classList.toggle("button-active");
+    setTimeout(function() {
+        obj.classList.toggle("button-active");
+    }, 150);
+}
+
+function keyPressed(e) {
+    e = e || window.event;
+    var drumActivated = checkKey(e);
+    if (drumActivated !== "none") {
+        console.log(drumActivated);
+        sounds(drumActivated);
+        animateBtn(drumActivated);
+    }
+}
+
+function clicked() {
+    var drumActivated = this.classList[0];
+    console.log(drumActivated);
+    sounds(drumActivated);
+    animateBtn(drumActivated);
+}
+
+function main() {
+    var buttons = document.querySelectorAll("button");
+
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", clicked);
+    }
+    document.onkeydown = keyPressed;
+}
+
+main();
